@@ -8,4 +8,5 @@
     <string name="toast_message">This is more information</string>
     <string name="switchOn">The switch is now on</string>
     <string name="switchOff">The switch is now off</string>
+    <string name="Undo">Undo</string>
 </resources>
