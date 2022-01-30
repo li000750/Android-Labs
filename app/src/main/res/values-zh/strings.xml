@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Android Labs</string>
-    <string name="hello_message">你好！</string>
-    <string name="ButtonText">I\'m a button</string>
+    <string name="app_name">Lab2</string>
+    <string name="button">按我</string>
+    <string name="checkbox">点选这里</string>
+    <string name="switch_on_off">开关</string>
+    <string name="TextView">看我的界面</string>
+    <string name="EditText">在这里输入</string>
+    <string name="toast_message">更多信息</string>
+    <string name="switchOn">开关现在已开</string>
+    <string name="switchOff">开关现在已关</string>
 </resources>
