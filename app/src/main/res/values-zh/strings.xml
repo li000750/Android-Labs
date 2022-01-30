@@ -9,4 +9,5 @@
     <string name="toast_message">更多信息</string>
     <string name="switchOn">开关现在已开</string>
     <string name="switchOff">开关现在已关</string>
+    <string name="Undo">撤销</string>
 </resources>

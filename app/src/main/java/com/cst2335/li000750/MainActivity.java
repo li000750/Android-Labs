@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
 
                 if (isChecked){
-                    Snackbar.make(buttonView,getResources().getString(R.string.switchOn), LENGTH_LONG).setAction("Undo",click->buttonView.setChecked(!isChecked)).show();
+                    Snackbar.make(buttonView,getResources().getString(R.string.switchOn), LENGTH_LONG).setAction(getResources().getString(R.string.Undo),click->buttonView.setChecked(!isChecked)).show();
                 }
                 else{
-                    Snackbar.make(buttonView,getResources().getString(R.string.switchOff), LENGTH_LONG).setAction("Undo",click->buttonView.setChecked(!isChecked)).show();
+                    Snackbar.make(buttonView,getResources().getString(R.string.switchOff), LENGTH_LONG).setAction(getResources().getString(R.string.Undo),click->buttonView.setChecked(!isChecked)).show();
                 }
             }
         });
