@@ -50,7 +50,7 @@
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="match_parent"
-        android:layout_height="60sp"
+        android:layout_height="80sp"
         android:src="@android:drawable/picture_frame"
         tools:ignore="SpeakableTextPresentCheck" />
 
