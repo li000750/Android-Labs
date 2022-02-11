@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lab2</string>
-    <string name="button">按我</string>
-    <string name="checkbox">点选这里</string>
-    <string name="switch_on_off">开关</string>
-    <string name="TextView">看我的界面</string>
-    <string name="EditText">在这里输入</string>
-    <string name="toast_message">更多信息</string>
-    <string name="switchOn">开关现在已开</string>
-    <string name="switchOff">开关现在已关</string>
-    <string name="Undo">撤销</string>
+    <string name="app_name">实验三</string>
+    <string name="emailAddress">输入您的电子邮件地址</string>
+    <string name="typeEmail">在这里输入电子邮件地址</string>
+    <string name="password">输入您的密码</string>
+    <string name="login">登录</string>
+    <string name="your_profile">您的概况</string>
+    <string name="your_name">您的名字：</string>
+    <string name="enter_your_name">输入您的名字</string>
+    <string name="your_email">您的电子邮件地址：</string>
+    <string name="enter_your_email">输入您的电子邮件地址</string>
+    <string name="your_picture">您的照片：</string>
+    <string name="take_picture">点击上面的按钮拍照</string>
+
 </resources>
