@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lab3</string>
+    <string name="app_name">Lab4</string>
     <string name="emailAddress">Enter your email address</string>
     <string name="typeEmail">Type email here</string>
     <string name="password">Type your password</string>
@@ -11,5 +11,6 @@
     <string name="enter_your_email">Enter your email</string>
     <string name="your_picture">Your picture:</string>
     <string name="take_picture">Click the button above to take a picture</string>
+    <string name="go_to_chat">Go to chat</string>
 
 </resources>

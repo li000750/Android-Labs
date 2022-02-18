@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -35,14 +36,20 @@ public class ProfileActivity extends AppCompatActivity {
                 myPictureTakerLauncher.launch(takePictureIntent);
             }
         });
+
         //display email
         EditText emailEditText = findViewById(R.id.enterEmail);
         Intent fromMain = getIntent();
         //fromMain.getStringExtra("EMAIL");
         emailEditText.setText(fromMain.getStringExtra(MainActivity.storeEmail));
 
+        //go to chat room
+        Button goToChatroom = findViewById(R.id.goToChatroom);
+        goToChatroom.setOnClickListener(click -> {
+                Intent gotoChatroom = new Intent(ProfileActivity.this,ChatRoomActivity.class);
+                startActivity(gotoChatroom);
+        });
     }
-
     ActivityResultLauncher<Intent> myPictureTakerLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult()
             ,new ActivityResultCallback<ActivityResult>() {
