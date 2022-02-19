@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 
@@ -48,13 +47,14 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         //input text
         EditText editText = findViewById(R.id.editText);
-        //String inputText = editText.getText().toString();
+
         //send message operations
         Button sendButton = findViewById(R.id.button1);
         sendButton.setOnClickListener( click -> {
             String inputText = editText.getText().toString();
             Log.i(TAG, "Adding a sending row");
             myMessages.add(new Messages(inputText,true));
+            editText.setText("");
             myAdapter.notifyDataSetChanged();
         });
         //receive message operations
@@ -63,9 +63,10 @@ public class ChatRoomActivity extends AppCompatActivity {
             String inputText = editText.getText().toString();
             Log.i(TAG, "Adding a receiving row");
             myMessages.add(new Messages(inputText,false));
+            editText.setText("");
             myAdapter.notifyDataSetChanged();
         });
-/*
+
         myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -74,45 +75,6 @@ public class ChatRoomActivity extends AppCompatActivity {
             }
         });
 
-        myList.setOnItemLongClickListener( (p, b, pos, id) -> {
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setTitle("Do you want to delete this?")
-
-                    //What is the message:
-                    .setMessage("Do you want to add a row")
-
-                    //what the Yes button does:
-                    .setPositiveButton("Yes", (click, arg) -> {
-                        myMessages.remove(id);
-                        myAdapter.notifyDataSetChanged();
-                    })
-                    //What the No button does:
-                    .setNegativeButton("No", (click, arg) -> { })
-
-                    //An optional third button:
-                    .setNeutralButton("Maybe", (click, arg) -> {  })
-
-                    //You can add extra layout elements:
-                    .setView(getLayoutInflater().inflate(R.layout.row_layout_send, null) )
-
-                    //Show the dialog
-                    .create().show();
-            return true;
-        });
-
-
-
-
-        /*
-        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                receiveRows.remove(i);
-                myAdapter.notifyDataSetChanged();
-            }
-        });
-*/
 
         myList.setOnItemLongClickListener( (p, b, pos, id) -> {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -133,7 +95,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                     //.setNeutralButton("Maybe", (click, arg) -> {  })
 
                     //You can add extra layout elements:
-                    .setView(getLayoutInflater().inflate(R.layout.row_layout_send, null) )
+                    .setView(getLayoutInflater().inflate(R.layout.row_layout_receive, null) )
 
                     //Show the dialog
                     .create().show();
@@ -159,7 +121,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             if (myMessages.get(position).sendOrReceive){
                 View newView1 = inflater.inflate(R.layout.row_layout_send, parent, false);
                 //set what the text should be for this row:
-                EditText editText1 = newView1.findViewById(R.id.editText);
+                EditText editText1 = newView1.findViewById(R.id.sendText);
                 editText1.setText( getItem(position).toString() );
 
                 //return it to be put in the table
@@ -168,7 +130,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             else  {
                 View newView2 = inflater.inflate(R.layout.row_layout_receive, parent, false);
                 //set what the text should be for this row:
-                EditText editText2 = newView2.findViewById(R.id.editText);
+                EditText editText2 = newView2.findViewById(R.id.receiveText);
                 editText2.setText(getItem(position).toString());
 
                 //return it to be put in the table
