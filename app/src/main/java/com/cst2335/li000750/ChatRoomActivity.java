@@ -67,25 +67,17 @@ public class ChatRoomActivity extends AppCompatActivity {
             myAdapter.notifyDataSetChanged();
         });
 
-        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                myMessages.remove(i);
-                myAdapter.notifyDataSetChanged();
-            }
-        });
-
-
         myList.setOnItemLongClickListener( (p, b, pos, id) -> {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Do you want to delete this?")
 
-                    //What is the message:
-                    .setMessage("Do you want to add a row")
+                    .setIcon(0)
 
+                    //What is the message:
+                    .setMessage("The selected row is:"+ (id+1)+"\n"+"The database id is:"+id)
                     //what the Yes button does:
                     .setPositiveButton("Yes", (click, arg) -> {
-                        myMessages.remove(id);
+                        myMessages.remove(pos);
                         myAdapter.notifyDataSetChanged();
                     })
                     //What the No button does:
@@ -94,11 +86,13 @@ public class ChatRoomActivity extends AppCompatActivity {
                     //An optional third button:
                     //.setNeutralButton("Maybe", (click, arg) -> {  })
 
+
                     //You can add extra layout elements:
                     .setView(getLayoutInflater().inflate(R.layout.row_layout_receive, null) )
 
                     //Show the dialog
                     .create().show();
+
             return true;
         });
 
