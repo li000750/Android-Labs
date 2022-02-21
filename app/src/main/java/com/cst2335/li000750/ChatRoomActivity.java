@@ -1,13 +1,16 @@
 package com.cst2335.li000750;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +23,7 @@ import android.widget.ListView;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ChatRoomActivity extends AppCompatActivity {
 
@@ -40,6 +44,12 @@ public class ChatRoomActivity extends AppCompatActivity {
         }
         public long getId() {
             return id;
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return "Message="+ inputMessage+",SendOrReceive="+sendOrReceive+",id="+id;
         }
     }
     ArrayList<Messages> myMessages = new ArrayList<>();
@@ -104,7 +114,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             //Message column:
             newRow.put( MyOpenHelper.COL_MESSAGE , inputText );
             //Send or receive column:
-            newRow.put(MyOpenHelper.COL_SEND_RECEIVE, 1);
+            newRow.put(MyOpenHelper.COL_SEND_RECEIVE, 0);
             //now that columns are full, you insert:
             long id = theDatabase.insert( MyOpenHelper.TABLE_NAME, null, newRow );
             Log.i(TAG, "Adding a receiving row");
@@ -143,9 +153,42 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             return true;
         });
+        printCursor(results,1);
 
     }
 
+    public void printCursor(Cursor c, int inVersion){
+        int version = inVersion;
+        int columnNumber = c.getColumnCount();
+        String[] columnNames = c.getColumnNames();
+        int rowNumber = c.getCount();
+        ArrayList<Messages> cursorRowValuesList = new ArrayList<>();
+        //String cursorRowValues;
+
+        c.moveToFirst();
+
+           while (!c.isAfterLast()){
+           int messageColIndex = c.getColumnIndex(MyOpenHelper.COL_MESSAGE);
+           int sOrRColIndex = c.getColumnIndex(MyOpenHelper.COL_SEND_RECEIVE);
+           int idColIndex = c.getColumnIndex(MyOpenHelper.COL_ID);
+
+            String message = c.getString(messageColIndex);
+            int sOrR = c.getInt(sOrRColIndex);
+            long id = c.getLong(idColIndex);
+
+            String row=String.format("Message="+message+",SendOrReceive="+sOrR+",id="+id);
+            Log.i("ROW VALUES", row);
+
+            c.moveToNext();}
+
+
+        Log.i("DATABASE VERSION", Integer.toString(version));
+        Log.i("NUMBER OF COLUMNS", Integer.toString(columnNumber));
+        Log.i("COLUMN NAMES", Arrays.toString(columnNames));
+        Log.i("NUMBER OF ROWS", Integer.toString(rowNumber));
+        //Log.i("ROW VALUES", cursorRowValues);
+
+    }
 
     public class MyListAdapter extends BaseAdapter {
 
@@ -180,4 +223,8 @@ public class ChatRoomActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
+
 }
