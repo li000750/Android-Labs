@@ -9,15 +9,15 @@
         android:id="@+id/sendText"
         android:layout_width="309dp"
         android:layout_height="50dp"
+        android:background="@null"
+        android:gravity="right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.047"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:background="@null"
-        android:gravity="right"/>
+        app:layout_constraintVertical_bias="0.054"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
         android:id="@+id/imageView"
