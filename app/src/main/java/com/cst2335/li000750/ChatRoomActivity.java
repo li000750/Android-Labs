@@ -158,7 +158,6 @@ public class ChatRoomActivity extends AppCompatActivity {
     }
 
     public void printCursor(Cursor c, int inVersion){
-        int version = inVersion;
         int columnNumber = c.getColumnCount();
         String[] columnNames = c.getColumnNames();
         int rowNumber = c.getCount();
@@ -182,7 +181,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             c.moveToNext();}
 
 
-        Log.i("DATABASE VERSION", Integer.toString(version));
+        Log.i("DATABASE VERSION", Integer.toString(inVersion));
         Log.i("NUMBER OF COLUMNS", Integer.toString(columnNumber));
         Log.i("COLUMN NAMES", Arrays.toString(columnNames));
         Log.i("NUMBER OF ROWS", Integer.toString(rowNumber));
