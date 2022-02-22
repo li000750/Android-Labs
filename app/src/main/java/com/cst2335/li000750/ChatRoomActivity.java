@@ -46,11 +46,6 @@ public class ChatRoomActivity extends AppCompatActivity {
             return id;
         }
 
-        @NonNull
-        @Override
-        public String toString() {
-            return "Message="+ inputMessage+",SendOrReceive="+sendOrReceive+",id="+id;
-        }
     }
     ArrayList<Messages> myMessages = new ArrayList<>();
 
@@ -128,7 +123,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setTitle("Do you want to delete this?")
 
-                    .setIcon(0)
+                    //.setIcon(0)
 
                     //What is the message:
                     .setMessage("The selected row is:"+ pos+"\n"+"The database id is:"+id)
@@ -153,7 +148,8 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             return true;
         });
-        printCursor(results,1);
+
+        printCursor(results,theDatabase.getVersion());
 
     }
 
@@ -161,8 +157,6 @@ public class ChatRoomActivity extends AppCompatActivity {
         int columnNumber = c.getColumnCount();
         String[] columnNames = c.getColumnNames();
         int rowNumber = c.getCount();
-        ArrayList<Messages> cursorRowValuesList = new ArrayList<>();
-        //String cursorRowValues;
 
         c.moveToFirst();
 
@@ -178,14 +172,13 @@ public class ChatRoomActivity extends AppCompatActivity {
             String row=String.format("Message="+message+",SendOrReceive="+sOrR+",id="+id);
             Log.i("ROW VALUES", row);
 
-            c.moveToNext();}
+        c.moveToNext();}
 
 
         Log.i("DATABASE VERSION", Integer.toString(inVersion));
         Log.i("NUMBER OF COLUMNS", Integer.toString(columnNumber));
         Log.i("COLUMN NAMES", Arrays.toString(columnNames));
         Log.i("NUMBER OF ROWS", Integer.toString(rowNumber));
-        //Log.i("ROW VALUES", cursorRowValues);
 
     }
 
