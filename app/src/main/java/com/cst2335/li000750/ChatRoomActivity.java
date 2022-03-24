@@ -44,6 +44,14 @@ public class ChatRoomActivity extends AppCompatActivity {
             return id;
         }
 
+        public String getMessage() {
+            return inputMessage;
+        }
+
+        public Boolean getSorR() {
+            return sendOrReceive;
+        }
+
     }
     ArrayList<Messages> myMessages = new ArrayList<>();
 
@@ -120,20 +128,14 @@ public class ChatRoomActivity extends AppCompatActivity {
             myAdapter.notifyDataSetChanged();
         });
 
-        myList.setOnItemClickListener( (list, view, position, id) -> {
-
-
+        myList.setOnItemLongClickListener( (list, view, position, id) -> {
             tFragment = new DetailsFragment();
 
             Bundle bundle= new Bundle();
 
-            String message=myMessages.get(position).inputMessage;
-            boolean isSend=myMessages.get(position).sendOrReceive;
-            long messageID=myAdapter.getItemId(position);
-
-            bundle.putString("Text",message);
-            bundle.putBoolean("IsSend",isSend);
-            bundle.putLong("id",messageID);
+            bundle.putString("Text",myMessages.get(position).getMessage());
+            bundle.putBoolean("IsSend",myMessages.get(position).getSorR());
+            bundle.putLong("id",position);
 
             tFragment.setArguments(bundle);
 
@@ -145,10 +147,10 @@ public class ChatRoomActivity extends AppCompatActivity {
                         .commit();
             }else{
                 Intent emptyPhonePage = new Intent(this,EmptyActivity.class);
-                emptyPhonePage.putExtra("MessageToDetailPage",bundle);
+                emptyPhonePage.putExtras(bundle);
                 startActivity(emptyPhonePage);
             }
-
+            return false;
         } );
 
 

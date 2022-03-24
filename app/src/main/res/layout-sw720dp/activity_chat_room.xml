@@ -59,10 +59,7 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="1402dp"
-        android:layout_height="814dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/listView"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toRightOf="@+id/listView">
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

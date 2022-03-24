@@ -2,6 +2,7 @@ package com.cst2335.li000750;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,19 +14,35 @@ import android.widget.TextView;
 
 
 public class DetailsFragment extends Fragment {
-
+    int position = 0;
     boolean isTablet = false;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if(savedInstanceState == null){
+            // Get back arguments
+            if(getArguments() != null) {
+                position = getArguments().getInt("position", 0);
+            }
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
 
         // Inflate the xml file for the fragment
-        View view= inflater.inflate(R.layout.fragment_details, parent, false);
+        return inflater.inflate(R.layout.fragment_details, parent, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+
         TextView textMessage=(TextView) view.findViewById(R.id.textView);
         TextView messageID=(TextView)view.findViewById(R.id.textView2);
         CheckBox checkBox=(CheckBox) view.findViewById(R.id.checkBox);
         Button hide=(Button) view.findViewById(R.id.button3);
-
         Bundle bundle=getArguments();
         String message=bundle.getString("Text");
         boolean isSend=bundle.getBoolean("IsSend");
@@ -50,7 +67,9 @@ public class DetailsFragment extends Fragment {
 
             }
         });
-    return view;
+
+
     }
+
 
 }

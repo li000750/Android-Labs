@@ -12,7 +12,7 @@ public class EmptyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_empty);
 
-        Bundle bundle=getIntent().getBundleExtra("MessageToDetailPage");
+        Bundle bundle=getIntent().getExtras();
 
         DetailsFragment fm=new DetailsFragment();
         fm.setArguments(bundle);
