@@ -1,21 +1,19 @@
 package com.cst2335.li000750;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.app.FragmentManager;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,13 +49,17 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     MyListAdapter myAdapter;
 
+    boolean isTablet;
+    DetailsFragment tFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
+        isTablet = findViewById(R.id.frameLayout) != null;
 
-        myOpener = new MyOpenHelper( this );
         //open the database:
+        myOpener = new MyOpenHelper( this );
         theDatabase = myOpener.getWritableDatabase();
         Cursor results = theDatabase.rawQuery( "Select * from " + MyOpenHelper.TABLE_NAME + ";", null );
         int idIndex = results.getColumnIndex( MyOpenHelper.COL_ID );
@@ -117,6 +119,39 @@ public class ChatRoomActivity extends AppCompatActivity {
             editText.setText("");
             myAdapter.notifyDataSetChanged();
         });
+
+        myList.setOnItemClickListener( (list, view, position, id) -> {
+
+
+            tFragment = new DetailsFragment();
+
+            Bundle bundle= new Bundle();
+
+            String message=myMessages.get(position).inputMessage;
+            boolean isSend=myMessages.get(position).sendOrReceive;
+            long messageID=myAdapter.getItemId(position);
+
+            bundle.putString("Text",message);
+            bundle.putBoolean("IsSend",isSend);
+            bundle.putLong("id",messageID);
+
+            tFragment.setArguments(bundle);
+
+            if (isTablet)  {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.frameLayout,tFragment)
+                        .commit();
+            }else{
+                Intent emptyPhonePage = new Intent(this,EmptyActivity.class);
+                emptyPhonePage.putExtra("MessageToDetailPage",bundle);
+                startActivity(emptyPhonePage);
+            }
+
+        } );
+
+
 
         myList.setOnItemLongClickListener( (p, b, pos, id) -> {
             Messages whatWasClicked = myMessages.get(pos);

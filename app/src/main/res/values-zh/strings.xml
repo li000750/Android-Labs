@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">实验四</string>
+    <string name="app_name">实验五</string>
     <string name="emailAddress">输入您的电子邮件地址</string>
     <string name="typeEmail">在这里输入电子邮件地址</string>
     <string name="password">输入您的密码</string>
@@ -16,5 +16,9 @@
     <string name="sendButton">发送</string>
     <string name="receiveButton">接收</string>
     <string name="type_here_hint">在这里输入</string>
+    <string name="id">ID=</string>
+    <string name="hide">隐藏</string>
+    <string name="is_a_send_message">是一条发送的信息吗</string>
+    <string name="message_here">信息在这里</string>
 
 </resources>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lab4</string>
+    <string name="app_name">Lab6</string>
     <string name="emailAddress">Enter your email address</string>
     <string name="typeEmail">Type email here</string>
     <string name="password">Type your password</string>
@@ -15,5 +15,9 @@
     <string name="sendButton">Send</string>
     <string name="receiveButton">Receive</string>
     <string name="type_here_hint">Type here</string>
+    <string name="message_here">Message Here</string>
+    <string name="id">ID=</string>
+    <string name="hide">Hide</string>
+    <string name="is_a_send_message">is a Send Message</string>
 
 </resources>

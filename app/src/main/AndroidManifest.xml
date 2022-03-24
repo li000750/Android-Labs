@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLabs">
         <activity
+            android:name=".EmptyActivity"
+            android:exported="false" />
+        <activity
             android:name=".MyOpenHelper"
             android:exported="false" />
         <activity
