@@ -128,7 +128,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             myAdapter.notifyDataSetChanged();
         });
 
-        myList.setOnItemLongClickListener( (list, view, position, id) -> {
+        myList.setOnItemClickListener( (list, view, position, id) -> {
             tFragment = new DetailsFragment();
 
             Bundle bundle= new Bundle();
@@ -150,7 +150,6 @@ public class ChatRoomActivity extends AppCompatActivity {
                 emptyPhonePage.putExtras(bundle);
                 startActivity(emptyPhonePage);
             }
-            return false;
         } );
 
 
