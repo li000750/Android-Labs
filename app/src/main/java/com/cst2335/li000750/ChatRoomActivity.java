@@ -57,8 +57,9 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     MyListAdapter myAdapter;
 
-    boolean isTablet;
-    DetailsFragment tFragment;
+    public static boolean isTablet;
+    public static FragmentManager fragmentManager;
+    DetailsFragment tFragment = new DetailsFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +130,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         });
 
         myList.setOnItemClickListener( (list, view, position, id) -> {
-            tFragment = new DetailsFragment();
+
 
             Bundle bundle= new Bundle();
 
@@ -187,6 +188,14 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         printCursor(results,theDatabase.getVersion());
 
+    }
+
+
+    public void clearFragment() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .remove(tFragment)
+                .commit();
     }
 
     public void printCursor(Cursor c, int inVersion){

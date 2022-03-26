@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class DetailsFragment extends Fragment {
     int position = 0;
-    boolean isTablet;
+    //boolean isTablet;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,14 +31,7 @@ public class DetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
-
-        // Inflate the xml file for the fragment
-        return inflater.inflate(R.layout.fragment_details, parent, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-
+        View view = inflater.inflate(R.layout.fragment_details, parent, false);
         TextView textMessage=(TextView) view.findViewById(R.id.textView);
         TextView messageID=(TextView)view.findViewById(R.id.textView2);
         CheckBox checkBox=(CheckBox) view.findViewById(R.id.checkBox);
@@ -55,21 +48,19 @@ public class DetailsFragment extends Fragment {
         else {checkBox.setChecked(false);}
 
         hide.setOnClickListener(e->{
-            if (isTablet) {
-                ChatRoomActivity chat = (ChatRoomActivity) getActivity();
-
-                chat.getSupportFragmentManager()
-                        .beginTransaction()
-                        .remove(getParentFragment())
-                        .commit();
+            if (ChatRoomActivity.isTablet) {
+             //   getActivity().onBackPressed();
+                //ChatRoomActivity.fragmentManager.beginTransaction().remove(this).commit();
+                ((ChatRoomActivity)getActivity()).clearFragment();
             } else {
                 getActivity().finish();
 
             }
         });
-
+        // Inflate the xml file for the fragment
+        //return inflater.inflate(R.layout.fragment_details, parent, false);
+        return view;
+    }
 
     }
 
-
-}
