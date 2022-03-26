@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class DetailsFragment extends Fragment {
     int position = 0;
-    boolean isTablet = false;
+    boolean isTablet;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
