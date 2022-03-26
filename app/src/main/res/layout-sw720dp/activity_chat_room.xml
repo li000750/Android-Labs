@@ -1,65 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ChatRoomActivity">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sendButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/receiveButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.997" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:hint="@string/type_here_hint"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="295dp"
-        android:layout_height="1518dp"
+        android:layout_width="300dp"
+        android:layout_height="750dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginEnd="1dp" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignBaseline="@id/listView">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/sendButton" />
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp"
+            android:hint="@string/type_here_hint" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/receiveButton" />
+
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        android:layout_width="1402dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintLeft_toRightOf="@+id/listView">
-    </FrameLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginLeft="0dp"
+        android:layout_toRightOf="@id/listView"
+        tools:layout_editor_absoluteY="-26dp" />
+
+
+</RelativeLayout>
