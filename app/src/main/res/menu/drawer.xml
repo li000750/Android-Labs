@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/go_chat"
+        android:title="@string/chat_room"
+        android:orderInCategory="10"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/go_weather"
+        android:title="@string/weather"
+        android:orderInCategory="20"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/go_back"
+        android:title="@string/go_back_to_login"
+        android:orderInCategory="30"
+        app:showAsAction="never" />
+</menu>

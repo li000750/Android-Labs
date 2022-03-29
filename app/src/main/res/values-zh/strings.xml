@@ -21,5 +21,10 @@
     <string name="is_a_send_message">是一条发送的信息吗</string>
     <string name="message_here">信息在这里</string>
     <string name="go_to_toolbar_page">去工具条页面</string>
+    <string name="chat_room">聊天室</string>
+    <string name="weather">天气</string>
+    <string name="go_back_to_login">回到登录界面</string>
+    <string name="open">打开抽屉</string>
+    <string name="close">关闭抽屉</string>
 
 </resources>

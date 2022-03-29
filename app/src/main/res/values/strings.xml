@@ -20,5 +20,10 @@
     <string name="hide">Hide</string>
     <string name="is_a_send_message">is a Send Message</string>
     <string name="go_to_toolbar_page">Go to Toolbar page</string>
+    <string name="chat_room">Chat room</string>
+    <string name="weather">Weather</string>
+    <string name="go_back_to_login">go back to login</string>
+    <string name="open">Drawer open</string>
+    <string name="close">Drawer close</string>
 
 </resources>

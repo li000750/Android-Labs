@@ -2,8 +2,11 @@ package com.cst2335.li000750;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,7 +16,7 @@ import android.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class TestToolbar extends AppCompatActivity {
+public class TestToolbar extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +24,13 @@ public class TestToolbar extends AppCompatActivity {
         setContentView(R.layout.activity_test_toolbar);
         Toolbar myToolbar = findViewById(R.id.toolbar);
         setActionBar(myToolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,myToolbar,
-                R.String.open,R.String.close);
+                R.string.open,R.string.close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(this);
     }
     @Override
@@ -58,7 +61,33 @@ public class TestToolbar extends AppCompatActivity {
     return true;
     }
 
+    @Override
+    public boolean onNavigationItemSelected( MenuItem item) {
 
+        switch(item.getItemId())
+        {
+            case R.id.go_chat:
+                Intent goChat = new Intent (getApplicationContext(), ChatRoomActivity.class);
+                startActivity(goChat);
+            break;
+
+            case R.id.go_weather:
+                Uri uri=Uri.parse("http://www.theweathernetwork.com");
+                Intent goWeather = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(goWeather);
+            break;
+
+            case R.id.go_back:
+                finish();
+                Intent intent=new Intent(this,MainActivity.class);
+                startActivity(intent);
+            break;
+        }
+        DrawerLayout drawerLayout = findViewById(R.id.drawer);
+        drawerLayout.closeDrawer(GravityCompat.START);
+
+        return false;
+    }
 
 
     }
