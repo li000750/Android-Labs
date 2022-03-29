@@ -49,6 +49,12 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent gotoChatroom = new Intent(ProfileActivity.this,ChatRoomActivity.class);
                 startActivity(gotoChatroom);
         });
+
+        Button goToToolbar=findViewById(R.id.goToToolbar);
+        goToToolbar.setOnClickListener(v->{
+            Intent goToToolbarPage=new Intent(ProfileActivity.this,TestToolbar.class);
+            startActivity(goToToolbarPage);
+        });
     }
     ActivityResultLauncher<Intent> myPictureTakerLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult()

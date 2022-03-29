@@ -19,5 +19,6 @@
     <string name="id">ID=</string>
     <string name="hide">Hide</string>
     <string name="is_a_send_message">is a Send Message</string>
+    <string name="go_to_toolbar_page">Go to Toolbar page</string>
 
 </resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/item1"
+        android:icon="@drawable/weather"
+        android:orderInCategory="1"
+        android:title="Weather"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/item2"
+        android:icon="@drawable/translate"
+        android:orderInCategory="2"
+        android:title="Translate"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/item3"
+        android:icon="@drawable/shop"
+        android:orderInCategory="3"
+        android:title="Translate"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/item4"
+        android:icon="@drawable/map"
+        android:orderInCategory="4"
+        android:title="Map"
+        app:showAsAction="never" />
+
+</menu>

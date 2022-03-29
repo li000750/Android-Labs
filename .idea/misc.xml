@@ -16,10 +16,13 @@
         <entry key="..\:/Users/cathy/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_main_linear.xml" value="0.25" />
         <entry key="..\:/Users/cathy/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_main_relative.xml" value="0.22" />
         <entry key="..\:/Users/cathy/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Users/cathy/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/activity_test_toolbar.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/cathy/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/fragment_details.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/cathy/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/row_layout.xml" value="0.16458333333333333" />
         <entry key="..\:/Users/cathy/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/row_layout_receive.xml" value="0.33" />
         <entry key="..\:/Users/cathy/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/row_layout_send.xml" value="0.33" />
+        <entry key="..\:/Users/cathy/AndroidStudioProjects/AndroidLabs/app/src/main/res/layout/toolbar.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/cathy/AndroidStudioProjects/AndroidLabs/app/src/main/res/menu/toolbar.xml" value="0.25" />
       </map>
     </option>
   </component>
