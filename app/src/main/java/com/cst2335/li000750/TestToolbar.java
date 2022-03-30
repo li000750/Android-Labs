@@ -2,6 +2,7 @@ package com.cst2335.li000750;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -12,7 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
-import android.widget.Toolbar;
+
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -23,7 +24,7 @@ public class TestToolbar extends AppCompatActivity implements NavigationView.OnN
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_toolbar);
         Toolbar myToolbar = findViewById(R.id.toolbar);
-        setActionBar(myToolbar);
+        setSupportActionBar(myToolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,myToolbar,
                 R.string.open,R.string.close);

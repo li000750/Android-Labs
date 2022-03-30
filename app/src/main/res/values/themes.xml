@@ -13,5 +13,16 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
+
+    <style name="Theme.Exercises.MyActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/simple_yellow</item>
+        <item name="colorSecondary">#DCAB63</item>
+        <item name="colorOnPrimary">@color/primary_blue</item>
+    </style>
+
+    <style name="Theme.Mybasic.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Mybasic.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

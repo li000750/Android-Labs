@@ -18,7 +18,8 @@
         android:theme="@style/Theme.AndroidLabs">
         <activity
             android:name=".TestToolbar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Exercises.MyActionBar"/>
         <activity
             android:name=".EmptyActivity"
             android:exported="false" />

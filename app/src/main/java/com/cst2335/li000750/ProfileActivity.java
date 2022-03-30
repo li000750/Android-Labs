@@ -22,6 +22,7 @@ import android.widget.ImageView;
 public class ProfileActivity extends AppCompatActivity {
 
     public static final String TAG="PROFILE_ACTIVITY";
+    public EditText emailEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         //display email
-        EditText emailEditText = findViewById(R.id.enterEmail);
+        emailEditText = findViewById(R.id.enterEmail);
         Intent fromMain = getIntent();
         //fromMain.getStringExtra("EMAIL");
         emailEditText.setText(fromMain.getStringExtra(MainActivity.storeEmail));
