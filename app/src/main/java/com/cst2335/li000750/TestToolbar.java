@@ -73,7 +73,7 @@ public class TestToolbar extends AppCompatActivity implements NavigationView.OnN
             break;
 
             case R.id.go_weather:
-                Uri uri=Uri.parse("http://www.theweathernetwork.com");
+                Uri uri=Uri.parse("https://weather.gc.ca/city/pages/on-118_metric_e.html");
                 Intent goWeather = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(goWeather);
             break;

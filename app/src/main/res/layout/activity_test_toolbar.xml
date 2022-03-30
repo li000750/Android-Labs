@@ -17,8 +17,8 @@
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawer"
-        android:layout_width="200dp"
-        android:layout_height="400dp"
+        android:layout_width="267dp"
+        android:layout_height="396dp"
         android:layout_marginTop="73dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
